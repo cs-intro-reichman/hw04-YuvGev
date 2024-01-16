@@ -33,16 +33,16 @@ public class StringOps {
         for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
     
-            if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+            if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == ' ') {
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     answer += (char) (ch - 'a' + 'A');
                 } else if ((ch >= 'A' && ch <= 'Z' && ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U')) {
                     answer += (char) (ch + 32);
                 } else {
-                answer += ch;
+                    answer += ch;
+                }
             }
         }
-    }
         return answer;
     }
       
