@@ -36,16 +36,16 @@ public class StringOps {
             if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     answer += (char) (ch - 'a' + 'A');
+                } else if ((ch >= 'A' && ch <= 'Z' && ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U')) {
+                    answer += (char) (ch + 32);
                 } else {
-                    answer += ch;
-                }
-            } else {
                 answer += ch;
             }
         }
+    }
         return answer;
     }
-    
+      
 
     public static String camelCase (String string) {
         // Write your code here:
