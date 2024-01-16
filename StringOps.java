@@ -22,9 +22,9 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String str = "One two tHRee world";
+        String str = "    Intro to coMPUter SCiense";
         char j = 'M';
-        System.out.println(capVowelsLowRest(str));
+        System.out.println(camelCase(str));
     }
 
     public static String capVowelsLowRest(String string) {
@@ -49,17 +49,15 @@ public class StringOps {
 
     public static String camelCase (String string) {
         // Write your code here:
-        boolean first = true;
+        
         String answer = "";
+
         for (int i = 0; i < string.length(); i++){
             char ch = string.charAt(i);
+
             if (string.charAt(i) == ' '){
                 ch = string.charAt(i + 1);
-                if (first){
-                    answer += ch;
-                    first = true;
-                }
-                if (ch >= 'a' && ch <= 'z' && first == true){
+                if (ch >= 'a' && ch <= 'z'){
                     ch = (char) (ch - 'a' + 'A');
                     answer += ch;
                 } else  {
