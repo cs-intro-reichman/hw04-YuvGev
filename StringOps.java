@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String str = "    Intro to coMPUter SCiense";
+        String str = " tWo    wordS";
         char j = 'M';
         System.out.println(camelCase(str));
     }
@@ -57,16 +57,10 @@ public class StringOps {
 
             if (string.charAt(i) == ' '){
                 ch = string.charAt(i + 1);
-                if (ch >= 'a' && ch <= 'z'){
-                    ch = (char) (ch - 'a' + 'A');
-                    answer += ch;
-                } else  {
-                    answer += ch;
-                }
                 i++;
                 continue;
             }
-            if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z'){
+            if (ch >= 'A' && ch <= 'Z'){
                 answer += (char) (ch | 32); 
             } else {
                 answer += ch;
