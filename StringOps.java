@@ -27,22 +27,17 @@ public class StringOps {
         System.out.println(capVowelsLowRest(str));
     }
 
-    public static String capVowelsLowRest (String string) {
-        // Write your code here:
+    public static String capVowelsLowRest(String string) {
         String answer = "";
-
+    
         for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
-
+    
             if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     answer += (char) (ch - 'a' + 'A');
                 } else {
-                    if (ch >= 'A' && ch <= 'Z'){
-                     answer += ch;  
-                    } else{
-                        answer += (char) (ch | 32);
-                    }
+                    answer += ch;
                 }
             } else {
                 answer += ch;
@@ -50,6 +45,7 @@ public class StringOps {
         }
         return answer;
     }
+    
 
     public static String camelCase (String string) {
         // Write your code here:
