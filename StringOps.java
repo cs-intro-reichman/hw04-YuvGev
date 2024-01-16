@@ -47,30 +47,33 @@ public class StringOps {
     }
       
 
-    public static String camelCase (String string) {
-        // Write your code here:
+    public static String camelCase(String string) {
         String answer = "";
-        for (int i = 0; i < string.length(); i++){
+    
+        boolean isFirstWord = true;
+    
+        for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
-            if (string.charAt(i) == ' '){
-                ch = string.charAt(i + 1);
-                if (ch >= 'a' && ch <= 'z'){
-                    ch = (char) (ch - 'a' + 'A');
-                    answer += ch;
-                } else {
-                    answer += ch;
-                }
-                i++;
+    
+            if (ch == ' ') {
+                isFirstWord = true;
                 continue;
             }
-            if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z'){
-                answer += (char) (ch | 32); 
-            } else {
-                answer += ch;
+    
+            if (isFirstWord) {
+                if (ch >= 'a' && ch <= 'z') {
+                    ch = (char) (ch - 'a' + 'A');
+                }
+                isFirstWord = false;
+            } else if (ch >= 'A' && ch <= 'Z') {
+                ch = (char) (ch | 32);
             }
+    
+            answer += ch;
         }
         return answer;
     }
+    
 
     public static int[] allIndexOf (String string, char chr) {
         // Write your code here:
