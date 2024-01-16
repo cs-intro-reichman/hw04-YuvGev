@@ -22,9 +22,9 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String str = "MMMMM";
+        String str = "One two tHRee world";
         char j = 'M';
-        System.out.println(allIndexOf(str, j));
+        System.out.println(capVowelsLowRest(str));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -38,8 +38,11 @@ public class StringOps {
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     answer += (char) (ch - 'a' + 'A');
                 } else {
-                    if (ch >= 'A' && ch <= 'Z'){}
-                    answer += (char) (ch | 32);
+                    if (ch >= 'A' && ch <= 'Z'){
+                     answer += ch;  
+                    } else{
+                        answer += (char) (ch | 32);
+                    }
                 }
             } else {
                 answer += ch;
