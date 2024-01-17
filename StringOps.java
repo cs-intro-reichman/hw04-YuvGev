@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String str = " tWo    wordS";
+        String str = "  tWo    wordS";
         char j = 'M';
         System.out.println(camelCase(str));
     }
@@ -46,25 +46,51 @@ public class StringOps {
         return answer;
     }
       
+    public static String lowerCase(String s) {
+        int i =0; //will run from the first char ti the last
+        String out = "";
+        for(i=0; i<s.length(); i++){
+            char n = s.charAt(i);
+            if((n <= 'Z') && n >= 'A'){ // Uppercase
+            n = (char) (n+32);
+            } 
+        out += n;
+        }
+
+        return out;
+    }
+    
+    public static String upCase(String str) {
+        String ans = "" + (char) (str.charAt(0) - 32);
+        
+            for(int i = 0; i < str.length(); i++ ) {
+            char ch = str.charAt(i);
+            if (ch == ' ') {
+                if (str.charAt(i+1) >= 'a' && str.charAt(i+1) <= 'z' && i >5){
+                ans = ans + ch + (char) (str.charAt(i + 1) - 32);
+                i++;
+                }
+            } else {
+                ans = ans + ch;
+            }
+
+        }
+        return ans;
+    }
+        
 
     public static String camelCase (String string) {
         // Write your code here:
-        
-        String answer = "";
+        string = lowerCase(string);
+        string  = upCase(string);
 
+        String answer = "";
         for (int i = 0; i < string.length(); i++){
             char ch = string.charAt(i);
-
-            if (string.charAt(i) == ' '){
-                ch = string.charAt(i + 1);
-                i++;
+            if (ch == ' '){
                 continue;
             }
-            if (ch >= 'A' && ch <= 'Z'){
-                answer += (char) (ch | 32); 
-            } else {
-                answer += ch;
-            }
+            answer += ch;
         }
         return answer;
     }
