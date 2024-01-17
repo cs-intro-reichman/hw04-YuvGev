@@ -117,16 +117,16 @@ public class StringOps {
 
     public static String camelCase(String string) {
         String newString = "";
-        boolean nextcharuc = false;
+        boolean nextchar = false;
         while (string.charAt(0) == ' ') {
             string = string.substring(1);
         }
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == 32) {
-                nextcharuc = true;
+                nextchar = true;
             }
-            else if (nextcharuc) {
-                nextcharuc = false;
+            else if (nextchar) {
+                nextchar = false;
                 if (string.charAt(i) >= 97 && string.charAt(i) <= 122) {
                     newString = newString + (char) (string.charAt(i) - 32);
                 }
@@ -135,7 +135,7 @@ public class StringOps {
             }
             else
             {
-                nextcharuc = false;
+                nextchar = false;
                 if (string.charAt(i) >= 97 && string.charAt(i) <= 122) {
                     newString = newString + (char) string.charAt(i);
                 }
