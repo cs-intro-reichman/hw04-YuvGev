@@ -25,6 +25,8 @@ public class StringOps {
         String str = "  tWo    wordS";
         char j = 'M';
         System.out.println(camelCase(str));
+        String s = "TwoWords";
+        System.out.println(s);
     }
 
     public static String capVowelsLowRest(String string) {
@@ -66,7 +68,7 @@ public class StringOps {
             for(int i = 0; i < str.length(); i++ ) {
             char ch = str.charAt(i);
             if (ch == ' ') {
-                if (str.charAt(i+1) >= 'a' && str.charAt(i+1) <= 'z' && i >5){
+                if (str.charAt(i+1) >= 'a' && str.charAt(i+1) <= 'z'){
                 ans = ans + ch + (char) (str.charAt(i + 1) - 32);
                 i++;
                 }
@@ -77,6 +79,23 @@ public class StringOps {
         }
         return ans;
     }
+
+    public static String first(String s) {
+        String answer = "";
+    
+        for (int j = 0; j < s.length(); j++) {
+            char chr = s.charAt(j);
+            
+            if (chr >= 'A' && chr <= 'Z' && j == 0) {
+                chr = (char) (chr | 32);
+            }
+    
+            answer += chr;
+        }
+    
+        return answer;
+    }
+
         
 
     public static String camelCase (String string) {
@@ -84,15 +103,16 @@ public class StringOps {
         string = lowerCase(string);
         string  = upCase(string);
 
+
         String answer = "";
         for (int i = 0; i < string.length(); i++){
             char ch = string.charAt(i);
-            if (ch == ' '){
-                continue;
-            }
+            if (ch != ' ')
             answer += ch;
         }
-        return answer;
+        String camel = (first(answer));
+        
+        return camel;
     }
 
     public static int[] allIndexOf (String string, char chr) {
