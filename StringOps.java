@@ -98,7 +98,7 @@ public class StringOps {
 
         
 
-    public static String camelCase (String string) {
+    public static String camelCase1 (String string) {
         // Write your code here:
         string = lowerCase(string);
         string  = upCase(string);
@@ -114,6 +114,37 @@ public class StringOps {
         
         return camel;
     }
+
+    public static String camelCase(String string) {
+        String newString = "";
+        boolean nextcharuc = false;
+        while (string.charAt(0) == ' ') {
+            string = string.substring(1);
+        }
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == 32) {
+                nextcharuc = true;
+            }
+            else if (nextcharuc) {
+                nextcharuc = false;
+                if (string.charAt(i) >= 97 && string.charAt(i) <= 122) {
+                    newString = newString + (char) (string.charAt(i) - 32);
+                }
+                else
+                newString = newString + (char) string.charAt(i);
+            }
+            else
+            {
+                nextcharuc = false;
+                if (string.charAt(i) >= 97 && string.charAt(i) <= 122) {
+                    newString = newString + (char) string.charAt(i);
+                }
+                else
+                newString = newString + (char) (string.charAt(i) + 32);
+            }
+        }
+        return newString;
+}
 
     public static int[] allIndexOf (String string, char chr) {
         // Write your code here:
